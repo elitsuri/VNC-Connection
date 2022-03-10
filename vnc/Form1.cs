@@ -21,9 +21,21 @@ namespace vnc
         {
             string branch = textBox1.Text.TrimStart().TrimEnd();
             string position = "10" + textBox2.Text.TrimStart().TrimEnd();
+            branch = convertBranch(branch);         
+            ProcessStartInfo procStartInfo = new ProcessStartInfo("C:\\Program Files (x86)\\UltraVNC\\vncviewer.exe", "172.31." + branch + "." + position);
+
+            using (Process process = new Process())
+            {
+                process.StartInfo = procStartInfo;
+                process.Start();
+                process.WaitForExit();
+            }
+        }
+        private string convertBranch(string branch)
+        {
             if (branch == "1") branch = "74";
             else if (branch == "2") branch = "22";
-            else if(branch == "3") branch = "20";
+            else if (branch == "3") branch = "20";
             else if (branch == "5") branch = "237";
             else if (branch == "7") branch = "47";
             else if (branch == "8") branch = "23";
@@ -80,16 +92,8 @@ namespace vnc
             else if (branch == "92") branch = "86";
             else if (branch == "95") branch = "62";
             else if (branch == "96") branch = "75";
-            ProcessStartInfo procStartInfo = new ProcessStartInfo("C:\\Program Files (x86)\\UltraVNC\\vncviewer.exe", "172.31."+ branch + "." + position);
-            procStartInfo.RedirectStandardOutput = true;
-            procStartInfo.UseShellExecute = false;
-            procStartInfo.CreateNoWindow = true;
-            using (Process process = new Process())
-            {
-                process.StartInfo = procStartInfo;
-                process.Start();
-                process.WaitForExit();
-            }
+
+            return branch;
         }
     }
 }

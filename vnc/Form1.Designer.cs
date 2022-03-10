@@ -82,7 +82,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::vnc.Properties.Resources._93940963_148844160003112_4374142595740205056_n;
-            this.ClientSize = new System.Drawing.Size(726, 284);
+            this.ClientSize = new System.Drawing.Size(722, 284);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
