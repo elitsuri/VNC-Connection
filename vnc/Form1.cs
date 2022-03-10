@@ -80,19 +80,14 @@ namespace vnc
             else if (branch == "92") branch = "86";
             else if (branch == "95") branch = "62";
             else if (branch == "96") branch = "75";
-
-
             ProcessStartInfo procStartInfo = new ProcessStartInfo("C:\\Program Files (x86)\\UltraVNC\\vncviewer.exe", "172.31."+ branch + "." + position);
             procStartInfo.RedirectStandardOutput = true;
             procStartInfo.UseShellExecute = false;
             procStartInfo.CreateNoWindow = true;
-
-
             using (Process process = new Process())
             {
                 process.StartInfo = procStartInfo;
                 process.Start();
-                // Add this: wait until process does its work
                 process.WaitForExit();
             }
         }
