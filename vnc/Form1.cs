@@ -247,6 +247,8 @@ namespace vnc
         {
             string branch = textBox1.Text.TrimStart().TrimEnd();
             string position = "10" + textBox2.Text.TrimStart().TrimEnd();
+            if (textBox2.Text.TrimStart().TrimEnd() == "18")
+                position = "200";
             branch = convertBranchBag(branch);
             ProcessStartInfo procStartInfo = new ProcessStartInfo("C:\\Program Files (x86)\\UltraVNC\\vncviewer.exe", "10.100." + branch + "." + position);
             using (Process process = new Process())
@@ -275,7 +277,6 @@ namespace vnc
                 process.WaitForExit();
             }
         }
-
         private void button7_Click(object sender, EventArgs e)
         {
             Process.Start("Chrome.exe", "http://109.226.58.90:8080/secure/Dashboard.jspa?selectPageId=10413");
